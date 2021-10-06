@@ -9,9 +9,9 @@ O principal objetivo para adoção destes diretórios padronizados é a dissemin
 
 - [Conjuntos Essenciais]():
 
-      - Schema e Dialetic documentados dentro do arquivo datapackage.json; e
+    - Schema e Dialetic documentados dentro do arquivo datapackage.json; e
 
-      - Validação dados x metadados realizada local e remotamente (github action).
+    - Validação dados x metadados realizada local e remotamente (github action).
 
 - [Conjuntos Intermediários]():
 
