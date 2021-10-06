@@ -21,9 +21,9 @@ O principal objetivo para adoção destes diretórios padronizados é a dissemin
 
 - [Conjuntos Avançados]():
 
-    - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json; e
+    - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json;
 
-    - Validação dados x metadados realizada local e remotamente (github action).
+    - Validação dados x metadados realizada local e remotamente (github action); e
 
     - Utilização da ferramenta [Git Large Files - glf](https://git-lfs.github.com/)
 
