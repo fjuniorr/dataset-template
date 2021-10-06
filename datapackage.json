@@ -1,0 +1,68 @@
+{
+  "profile": "tabular-data-package",
+  "resources": [
+    {
+      "name": "letters",
+      "path": "data/letters.csv",
+      "profile": "tabular-data-resource",
+      "schema": {
+        "fields": [
+          {
+            "name": "id",
+            "type": "integer",
+            "format": "default",
+            "title": "Incremental counter",
+            "description": "An integer counter for the rows."
+          },
+          {
+            "name": "letter",
+            "type": "string",
+            "format": "default",
+            "title": "Alfhabet letter",
+            "description": "A lower case consonant alfabet letter. `foobar`"
+          },
+          {
+            "name": "vowel",
+            "type": "boolean",
+            "format": "default",
+            "title": "Grammer of letter",
+            "description": "Is the letter a vowel? no"
+          }
+        ]
+      },
+      "dialect": {
+        "delimiter": ",",
+        "header": true,
+        "doubleQuote": true
+        },
+      "title": "letters",
+      "format": "csv",
+      "encoding": "UTF-8",
+      "description": "Este arquivo apresenta todas as letras do alfabeto portugês"
+    }
+  ],
+  "keywords": [
+    "letters",
+    "portugues grammar"
+  ],
+  "name": "conjunto-essencial",
+  "title": "Letras do alfabeto portugês",
+  "description": "Este conjunto é capaz de informar se determinada letra é uma vogal ou não",
+  "homepage": "https://github.com/fjuniorr",
+  "version": "0.0.1",
+  "owner_org": "controladoria-geral-do-estado-cge",
+  "contributors": [
+    {
+      "title": "Gabriel Braico Dornas",
+      "role": "publisher",
+      "organization": "controladoria-geral-do-estado-cge"
+    }
+  ],
+  "licenses": [
+    {
+      "name": "CC0-1.0",
+      "title": "CC0 1.0",
+      "path": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  ]
+}

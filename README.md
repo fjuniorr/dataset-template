@@ -1,4 +1,4 @@
-Conjuntos De Dados Padronizados
+Conjuntos De Dados Padronizados - Essencial
 ==
 
 Este repositório visa documentar padronizações que poderão ser utilizadas como templates para novos conjuntos de dados a serem publicados no [Portal de Dados Abertos do Estado de Minas Gerais - PDA/MG](https://dados.mg.gov.br/).
@@ -13,32 +13,12 @@ O principal objetivo para adoção destes diretórios padronizados é a dissemin
 
     - Validação dados x metadados realizada local e remotamente (github action).
 
-- [Conjuntos Intermediários]():
+#### Utilização:
 
-    - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json; e
+- Criação e ativação do ambiente
 
-    - Validação dados x metadados realizada local e remotamente (github action).
+- Instalação pacotes
 
-- [Conjuntos Avançados]():
-
-    - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json;
-
-    - Validação dados x metadados realizada local e remotamente (github action); e
-
-    - Utilização da ferramenta [Git Large Files - glf](https://git-lfs.github.com/)
-
-#### Ferramentas:
-
-- Todos os conjuntos:
-
-  - [Controle de Versão Git](https://git-scm.com/);
-
-  - [Repositório online com controle de versão github](https://github.com/);
-
-  - [Padrão Frictionless de documentação de conjunto de dados sem fricção](https://frictionlessdata.io/); e
-
-  - [Biblioteca Python dpckan](https://pypi.org/project/dpckan/)
-
-- Casos Específicos:
-
-  - [Git Large Files - glf](https://git-lfs.github.com/)
+```Python
+$ pip install -r requirements.txt
+```
