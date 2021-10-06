@@ -8,16 +8,23 @@ O principal objetivo para adoção destes diretórios padronizados é a dissemin
 #### As estruturas padronizadas dos novos conjuntos seguirá a seguinte divisão:
 
 - [Conjuntos Essenciais]():
+
       - Schema e Dialetic documentados dentro do arquivo datapackage.json; e
+
       - Validação dados x metadados realizada local e remotamente (github action).
 
 - [Conjuntos Intermediários]():
+
       - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json; e
+
       - Validação dados x metadados realizada local e remotamente (github action).
 
 - [Conjuntos Avançados]():
+
       - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json; e
+
       - Validação dados x metadados realizada local e remotamente (github action).
+
       - Utilização da ferramenta [Git Large Files - glf](https://git-lfs.github.com/)
 
 #### Ferramentas:
