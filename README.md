@@ -35,7 +35,7 @@ O principal objetivo para adoção destes diretórios padronizados é a dissemin
 
   - [Repositório online com controle de versão github](https://github.com/);
 
-  - [Padrão Frictionless de documentação de conjunto de dados sem fricção](https://frictionlessdata.io/);
+  - [Padrão Frictionless de documentação de conjunto de dados sem fricção](https://frictionlessdata.io/); e
 
   - [Biblioteca Python dpckan](https://pypi.org/project/dpckan/)
 
