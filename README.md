@@ -15,25 +15,30 @@ O principal objetivo para adoção destes diretórios padronizados é a dissemin
 
 - [Conjuntos Intermediários]():
 
-      - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json; e
+    - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json; e
 
-      - Validação dados x metadados realizada local e remotamente (github action).
+    - Validação dados x metadados realizada local e remotamente (github action).
 
 - [Conjuntos Avançados]():
 
-      - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json; e
+    - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json; e
 
-      - Validação dados x metadados realizada local e remotamente (github action).
+    - Validação dados x metadados realizada local e remotamente (github action).
 
-      - Utilização da ferramenta [Git Large Files - glf](https://git-lfs.github.com/)
+    - Utilização da ferramenta [Git Large Files - glf](https://git-lfs.github.com/)
 
 #### Ferramentas:
 
 - Todos os conjuntos:
-    - [Controle de Versão Git](https://git-scm.com/);
-    - [Repositório online com controle de versão github](https://github.com/);
-    - [Padrão Frictionless de documentação de conjunto de dados sem fricção](https://frictionlessdata.io/);
-    - [Biblioteca Python dpckan](https://pypi.org/project/dpckan/)
+
+  - [Controle de Versão Git](https://git-scm.com/);
+
+  - [Repositório online com controle de versão github](https://github.com/);
+
+  - [Padrão Frictionless de documentação de conjunto de dados sem fricção](https://frictionlessdata.io/);
+
+  - [Biblioteca Python dpckan](https://pypi.org/project/dpckan/)
 
 - Casos Específicos:
-    [Git Large Files - glf](https://git-lfs.github.com/)
+
+  - [Git Large Files - glf](https://git-lfs.github.com/)
