@@ -7,7 +7,7 @@ O principal objetivo para adoção destes diretórios padronizados é a dissemin
 
 #### As estruturas padronizadas dos novos conjuntos seguirá a seguinte divisão:
 
-- [Conjuntos Essenciais]():
+- [Conjuntos Essenciais](https://github.com/dados-mg/datasets-template/tree/conjunto-essencial):
 
     - Schema e Dialetic documentados dentro do arquivo datapackage.json; e
 
