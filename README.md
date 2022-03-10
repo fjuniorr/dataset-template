@@ -1,44 +1,55 @@
-Conjuntos De Dados Padronizados
+Dataset Template :ramen:
 ==
 
-Este repositório visa documentar padronizações que poderão ser utilizadas como templates para novos conjuntos de dados a serem publicados no [Portal de Dados Abertos do Estado de Minas Gerais - PDA/MG](https://dados.mg.gov.br/).
+Este repositório visa documentar padronizações que poderão ser utilizadas como template para novos conjuntos de dados a serem publicados no [Portal de Dados Abertos do Estado de Minas Gerais - PDA/MG](https://dados.mg.gov.br/).
 
-O principal objetivo para adoção destes diretórios padronizados é a disseminação de melhores práticas em relação as ferramentas utilizadas no âmbito da Diretoria Centra de Transparência Ativa - DTA, e, ao mesmo tempo, a redução do trabalho repetitivo na inicialização de um novo conjunto de dados e sua publicação no [PDA/MG](https://dados.mg.gov.br/).
+O principal objetivo é a disseminação de melhores práticas em relação as ferramentas utilizadas no âmbito da Diretoria de Transparência Ativa - DTA, e, ao mesmo tempo, a redução do trabalho repetitivo na inicialização de um novo conjunto de dados e sua publicação no [PDA/MG](https://dados.mg.gov.br/).
 
-#### As estruturas padronizadas dos novos conjuntos seguirá a seguinte divisão:
+#### Diretrizes
 
-- [Conjuntos Essenciais](https://github.com/dados-mg/datasets-template/tree/conjunto-essencial):
+  + Utilização padrão [frictionless](https://specs.frictionlessdata.io/#overview) de documentação de conjunto de dados;
+  + Utilização pacote python [dpckan](https://pypi.org/project/dpckan/) para publicação e atualização dos conjuntos de dados;
+  + Schema e Dialetic documentados fora do arquivo datapackage.json; e
+  + Validação dados x metadados realizada local e remotamente (github action).
 
-    - Schema e Dialetic documentados dentro do arquivo datapackage.json; e
+#### Utilização:
 
-    - Validação dados x metadados realizada local e remotamente (github action).
+  + Criação de repositório a partir do repositório template;
+  + Clone local do novo repositório criado;
+  + Criação do ambiente python:
 
-- [Conjuntos Intermediários]():
+```Terminal
+# Sistema operacional windows
+$ make venv-create-windows
 
-    - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json; e
+# Sistema operacional linux
+$ make venv-create-linux
+```
 
-    - Validação dados x metadados realizada local e remotamente (github action).
+  + Ativação dp ambiente python:
 
-- [Conjuntos Avançados]():
+```Terminal
+# Sistema operacional windows
+$ source venv/Scripts/activate
 
-    - Schema e Dialetic documentados em arquivos externos e referenciados no arquivo datapackage.json;
+# Sistema operacional linux
+$ source venv/bin/activate
+```
 
-    - Validação dados x metadados realizada local e remotamente (github action); e
+  + Instalação pacotes python:
 
-    - Utilização da ferramenta [Git Large Files - glf](https://git-lfs.github.com/)
+```Terminal
+$ make install-packages
+```
 
-#### Ferramentas:
+  + Validação conjunto de dados:
 
-- Todos os conjuntos:
+```
+$ make dataset-validate
+```
 
-  - [Controle de Versão Git](https://git-scm.com/);
+  + Publicando conjunto de dados:
 
-  - [Repositório online com controle de versão github](https://github.com/);
-
-  - [Padrão Frictionless de documentação de conjunto de dados sem fricção](https://frictionlessdata.io/); e
-
-  - [Biblioteca Python dpckan](https://pypi.org/project/dpckan/)
-
-- Casos Específicos:
-
-  - [Git Large Files - glf](https://git-lfs.github.com/)
+```
+$ make dataset-create
+```
