@@ -27,7 +27,7 @@ dataset-validate: ## Valida dataset e todos os seus recursos
 	@echo 'Validando dataset...'
 	@frictionless validate datapackage.json
 
-dataset-create:
+dataset-create: ## Cria dataset e todos os seus recursos em instância do CKAN
 	@dpckan dataset create
 
 

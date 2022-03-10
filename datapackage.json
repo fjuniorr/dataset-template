@@ -17,7 +17,7 @@
     "letters",
     "portugues grammar"
   ],
-  "name": "conjunto-essencial",
+  "name": "dataset-template",
   "title": "Letras do alfabeto portugês",
   "description": "Este conjunto é capaz de informar se determinada letra é uma vogal ou não",
   "homepage": "https://github.com/fjuniorr",
