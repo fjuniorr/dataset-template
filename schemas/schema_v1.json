@@ -1,0 +1,25 @@
+{
+  "fields": [
+    {
+      "name": "id",
+      "type": "integer",
+      "format": "default",
+      "title": "Incremental counter",
+      "description": "An integer counter for the rows."
+    },
+    {
+      "name": "letter",
+      "type": "string",
+      "format": "default",
+      "title": "Alfhabet letter",
+      "description": "A lower case consonant alfabet letter. `foobar`"
+    },
+    {
+      "name": "vowel",
+      "type": "boolean",
+      "format": "default",
+      "title": "Grammer of letter",
+      "description": "Is the letter a vowel? no"
+    }
+  ]
+}

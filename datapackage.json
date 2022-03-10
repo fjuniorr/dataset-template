@@ -5,36 +5,8 @@
       "name": "letters",
       "path": "data/letters.csv",
       "profile": "tabular-data-resource",
-      "schema": {
-        "fields": [
-          {
-            "name": "id",
-            "type": "integer",
-            "format": "default",
-            "title": "Incremental counter",
-            "description": "An integer counter for the rows."
-          },
-          {
-            "name": "letter",
-            "type": "string",
-            "format": "default",
-            "title": "Alfhabet letter",
-            "description": "A lower case consonant alfabet letter. `foobar`"
-          },
-          {
-            "name": "vowel",
-            "type": "boolean",
-            "format": "default",
-            "title": "Grammer of letter",
-            "description": "Is the letter a vowel? no"
-          }
-        ]
-      },
-      "dialect": {
-        "delimiter": ",",
-        "header": true,
-        "doubleQuote": true
-        },
+      "schema": "schemas/schema_v1.json",
+      "dialect": "schemas/dialetic_v1.json",
       "title": "letters",
       "format": "csv",
       "encoding": "UTF-8",
