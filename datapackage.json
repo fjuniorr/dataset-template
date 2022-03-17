@@ -6,7 +6,7 @@
       "path": "data/letters.csv",
       "profile": "tabular-data-resource",
       "schema": "schemas/schema_v1.json",
-      "dialect": "schemas/dialetic_v1.json",
+      "dialect": "schemas/dialect_v1.json",
       "title": "letters",
       "format": "csv",
       "encoding": "UTF-8",
