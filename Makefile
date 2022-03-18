@@ -1,4 +1,4 @@
-.PHONY: help venv validate create update
+.PHONY: help venv list validate create update
 
 UNAME := $(shell uname)
 ACTIVATE_LINUX:=. venv/bin/activate
@@ -17,6 +17,15 @@ venv: ## Cria ambiente virtual python e instala pacotes.
 	@if [ $(UNAME) = "MINGW64_NT-10.0-18362" ]; then\
 	  python -m venv venv;\
 	  $(ACTIVATE_WINDOWS); pip install -r requirements.txt;\
+	fi
+
+list: ## Lista pacotes instalados em ambiente virtual python.
+	@echo 'Listando pacotes instalados em ambiente virtual python....'
+	@if [ $(UNAME) = "Linux" ]; then\
+	  $(ACTIVATE_LINUX); pip list;\
+	fi
+	@if [ $(UNAME) = "MINGW64_NT-10.0-18362" ]; then\
+	  $(ACTIVATE_WINDOWS); pip list;\
 	fi
 
 validate: ## Valida dataset e todos os seus recursos
