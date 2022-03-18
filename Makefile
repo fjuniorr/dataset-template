@@ -1,4 +1,4 @@
-.PHONY: help venv validate create
+.PHONY: help venv validate create update
 
 UNAME := $(shell uname)
 ACTIVATE_LINUX:=. venv/bin/activate
@@ -35,4 +35,13 @@ create: ## Cria dataset e todos os seus recursos em instância do CKAN
 	fi
 	@if [ $(UNAME) = "MINGW64_NT-10.0-18362" ]; then\
 	  $(ACTIVATE_WINDOWS); dpckan dataset create;\
+	fi
+
+update: ## Atualiza dataset e todos os seus recursos em instância do CKAN
+	@echo 'Criando conjunto...'
+	@if [ $(UNAME) = "Linux" ]; then\
+	  $(ACTIVATE_LINUX); dpckan dataset update;\
+	fi
+	@if [ $(UNAME) = "MINGW64_NT-10.0-18362" ]; then\
+	  $(ACTIVATE_WINDOWS); dpckan dataset update;\
 	fi
