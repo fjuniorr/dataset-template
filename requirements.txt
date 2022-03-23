@@ -1,2 +1,3 @@
 ipdb==0.13.9
 dpckan==0.1.15
+dtamg-py==0.1.5
