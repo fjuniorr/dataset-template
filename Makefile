@@ -45,7 +45,7 @@ create: ## Cria dataset e todos os seus recursos em instância do CKAN
 	  $(ACTIVATE_LINUX); dpckan dataset create;\
 	fi
 	@if [ $(UNAME) = "MINGW64_NT-10.0-18362" ]; then\
-	  $(ACTIVATE_WINDOWS); dpckan dataset create;\
+	  $(ACTIVATE_WINDOWS); dpckan --datastore dataset create;\
 	fi
 
 update: ## Atualiza dataset e todos os seus recursos em instância do CKAN
