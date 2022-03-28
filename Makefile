@@ -1,13 +1,17 @@
 include config.mk
 
-.PHONY: help venv list validate create update data build clean test
+.PHONY: help start list validate create update data build clean
 
-help: ## Ajuda com descrição de cada comando
+help: ## Informa breve descrição dos comando
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
 
 start: ## Inicia ambiente para trabalho com conjunto
 	@echo 'Iniciando ambiente...'
-	@docker run -ti gabrielbdornas/dtamg:latest $(PWD):/dataset bash
+	@docker run -it -v $(PWD):/dataset gabrielbdornas/dtamg:latest bash
+
+exit: ## Fecha ambiente para trabalho com conjunto
+	@echo 'Fechando ambiente...'
+	@exit
 
 list: ## Lista pacotes instalados em ambiente virtual python
 	@echo 'Lista pacotes python instalados...'
