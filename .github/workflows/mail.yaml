@@ -1,31 +1,48 @@
-name: dtamg
+name: Atualização
 
-on: [push]
+on:
+  push:
+    paths:
+      - 'datapackage.yaml'
+      - 'schemas/*'
+      - 'README.md'
+      - 'CHANGELOG.md'
+      - 'CONTRIBUTING.md'
+      - 'upload/*'
 
 jobs:
-  # this workflow will automate datapackage validation with frictionless
-  # for more information see: https://repository.frictionlessdata.io/
-  validate:
+  build:
     runs-on: ubuntu-latest
     steps:
-       - name: Checkout repository
-         uses: actions/checkout@v2
-       - name: Validate data
-         uses: frictionlessdata/repository@v1
-  update:
+      - uses: actions/checkout@v2
+      - name: Init Docker
+        run: make start
+      - name: Build
+        run: |
+          make data
+          make build
+          make compare
+      - name: Commit new datapackage.json
+        uses: stefanzweifel/git-auto-commit-action@v4
+  validate:
+  # this workflow will automate datapackage validation with frictionless
+  # for more information see: https://repository.frictionlessdata.io/
+    runs-on: ubuntu-latest
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+      - name: Validate data
+        uses: frictionlessdata/repository@v1
+  ckan:
     runs-on: ubuntu-latest
     needs: validate
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.9
-        uses: actions/setup-python@v2
-        with:
-            python-version: 3.9
-      - name: OS
-        run: make test
-      - name: Install dependencies
-        run: pip install -r requirements.txt
+      - name: Init Docker
+        run: make start
       - name: Update data package to CKAN with dpckan
         env:
           CKAN_HOST: ${{ secrets.CKAN_HOST }}
