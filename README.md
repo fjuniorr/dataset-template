@@ -10,3 +10,9 @@ https://dev.to/mcastellin/use-docker-with-proxy-servers-tutorial-10gg#:~:text=Se
 
 - Docker run
 https://stackoverflow.com/a/34211452/11755155
+
+https://github.com/docker-archive/toolbox/issues/673#issuecomment-650243545
+- resolvido problema de criar pasta com nome estranho
+
+- Debian não instala make
+- https://askubuntu.com/questions/65081/what-are-the-implications-of-no-install-recommends-apt-get-install
