@@ -2,68 +2,39 @@ include config.mk
 
 .PHONY: help venv list validate create update data build clean test
 
-help:
+help: ## Ajuda com descrição de cada comando
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
 
-test: ## testa
-	@echo $(OS)
+start: ## Inicia ambiente para trabalho com conjunto
+	@echo 'Iniciando ambiente...'
+	@docker run -ti gabrielbdornas/dtamg:latest $(PWD):/dataset bash
 
-venv: ## Cria ambiente virtual python e instala pacotes.
-	@echo 'Criando ambiente virtual python e instalando pacotes...'
-	@rm -rf venv
-	@if [ $(OS) = "Linux" ]; then\
-	  python3 -m venv venv;\
-	  $(ACTIVATE_LINUX); pip install -r requirements.txt;\
-	fi
-	@if [ $(OS) = "MINGW64" ]; then\
-	  python -m venv venv;\
-	  $(ACTIVATE_WINDOWS); pip install -r requirements.txt;\
-	fi
-
-list: ## Lista pacotes instalados em ambiente virtual python.
-	@echo 'Listando pacotes instalados em ambiente virtual python....'
-	@if [ $(OS) = "Linux" ]; then\
-	  $(ACTIVATE_LINUX); pip list;\
-	fi
-	@if [ $(OS) = "MINGW64" ]; then\
-	  $(ACTIVATE_WINDOWS); pip list;\
-	fi
+list: ## Lista pacotes instalados em ambiente virtual python
+	@echo 'Lista pacotes python instalados...'
+	@pip list
 
 validate: ## Valida dataset e todos os seus recursos
 	@echo 'Validando conjunto...'
-	@if [ $(OS) = "Linux" ]; then\
-	  $(ACTIVATE_LINUX); frictionless validate datapackage.json;\
-	fi
-	@if [ $(OS) = "MINGW64" ]; then\
-	  $(ACTIVATE_WINDOWS); frictionless validate datapackage.json;\
-	fi
+	@frictionless validate datapackage.json
 
 create: ## Cria dataset e todos os seus recursos em instância do CKAN
 	@echo 'Criando conjunto...'
-	@if [ $(OS) = "Linux" ]; then\
-	  $(ACTIVATE_LINUX); dpckan dataset create;\
-	fi
-	@if [ $(OS) = "MINGW64" ]; then\
-	  $(ACTIVATE_WINDOWS); dpckan --datastore dataset create;\
-	fi
+	@dpckan --datastore dataset create
 
 update: ## Atualiza dataset e todos os seus recursos em instância do CKAN
-	@echo 'Criando conjunto...'
-	@if [ $(OS) = "Linux" ]; then\
-	  $(ACTIVATE_LINUX); dpckan dataset update;\
-	fi
-	@if [ $(OS) = "MINGW64" ]; then\
-	  $(ACTIVATE_WINDOWS); dpckan dataset update;\
-	fi
+	@echo "Atualiza conjunto..."
+	@dpckan dataset update
 
-data: ## Converte arquivos xls ou xlsx in csv
-	@echo Converting xls or xlsx to csv...
-	@dtamg-py template convert
+data: $(CSV_FILES)  ## Converte arquivos xlsx para csv
 
-build: datapackage.json
+$(CSV_FILES): data/%.csv : upload/%.xlsx
+	@echo Converting upload/$*.xlsx file to data/$*.csv...
+	@python /scripts/convert_csv.py $@ $<
 
-datapackage.json: datapackage.yaml $(CSV_FILES) ## Build datapackage.json from datapackage.yaml
-	@echo "Building datapackage.json..."
+build: datapackage.json ## Build datapackage.json from datapackage.yaml
+
+datapackage.json: datapackage.yaml $(CSV_FILES)
+	@echo "Construindo datapackage.json..."
 	@frictionless describe --type package --stats --json $< > $@
 
 clean:
