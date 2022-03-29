@@ -1,13 +1,13 @@
 include config.mk
 
-.PHONY: help start list validate create update data build clean
+.PHONY: help start exit list validate create update data build clean
 
 help: ## Informa breve descrição dos comando
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
 
 start: ## Inicia ambiente para trabalho com conjunto
 	@echo 'Iniciando ambiente...'
-	@docker run -it -v /$(PWD):/dataset gabrielbdornas/dtamg:latest bash
+	@docker run -it -v /$(PWD):/dataset -e CKAN_HOST=$(CKAN_HOST) -e CKAN_KEY=$(CKAN_KEY) gabrielbdornas/dtamg:latest bash
 
 exit: ## Fecha ambiente para trabalho com conjunto
 	@echo 'Fechando ambiente...'
