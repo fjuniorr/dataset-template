@@ -33,7 +33,7 @@ data: $(CSV_FILES)  ## Converte arquivos xlsx para csv
 
 $(CSV_FILES): data/%.csv : upload/%.xlsx
 	@echo Converting upload/$*.xlsx file to data/$*.csv...
-	@python /scripts/convert_csv.py $@ $<
+	@python /scripts/convert_csv.py $< $@
 
 build: datapackage.json ## Build datapackage.json from datapackage.yaml
 
