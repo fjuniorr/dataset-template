@@ -13,17 +13,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container:
+      image: gabrielbdornas/dtamg:latest
     steps:
       - uses: actions/checkout@v2
-      - name: Init Docker
-        run: make start
+      - name: Data
+        run: make data
       - name: Build
-        run: |
-          make data
-          make build
-          make compare
+        run: make build
       - name: Commit new datapackage.json
         uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Compare
+        run: make compare
   validate:
   # this workflow will automate datapackage validation with frictionless
   # for more information see: https://repository.frictionlessdata.io/
@@ -37,12 +38,12 @@ jobs:
         uses: frictionlessdata/repository@v1
   ckan:
     runs-on: ubuntu-latest
+    container:
+      image: gabrielbdornas/dtamg:latest
     needs: validate
     if: github.ref == 'refs/heads/main'
     steps:
       - uses: actions/checkout@v2
-      - name: Init Docker
-        run: make start
       - name: Update data package to CKAN with dpckan
         env:
           CKAN_HOST: ${{ secrets.CKAN_HOST }}

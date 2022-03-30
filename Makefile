@@ -1,6 +1,6 @@
 include config.mk
 
-.PHONY: help start exit list validate create update data build clean
+.PHONY: help start exit list validate create update data build compare clean
 
 help: ## Informa breve descrição dos comando
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' Makefile | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-10s\033[0m %s\n", $$1, $$2}'
@@ -40,6 +40,10 @@ build: datapackage.json ## Build datapackage.json from datapackage.yaml
 datapackage.json: datapackage.yaml $(CSV_FILES)
 	@echo "Construindo datapackage.json..."
 	@frictionless describe --type package --stats --json $< > $@
+
+compare: ## Compara recursos existentes na pasta data com os incluído no datapackage.json
+	@echo 'Comparando recursos pasta data e datapackage.json...'
+	@python /scripts/compare.py
 
 clean:
 	rm -rf data/*.csv
