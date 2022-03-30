@@ -1,55 +1,18 @@
-Dataset Template :ramen:
+Dataset Template
 ==
 
-Este repositório visa documentar padronizações que poderão ser utilizadas como template para novos conjuntos de dados a serem publicados no [Portal de Dados Abertos do Estado de Minas Gerais - PDA/MG](https://dados.mg.gov.br/).
+- Instalar Docker e Linux kernel
 
-O principal objetivo é a disseminação de melhores práticas em relação as ferramentas utilizadas no âmbito da Diretoria de Transparência Ativa - DTA, e, ao mesmo tempo, a redução do trabalho repetitivo na inicialização de um novo conjunto de dados e sua publicação no [PDA/MG](https://dados.mg.gov.br/).
+https://docs.microsoft.com/en-us/windows/wsl/install-manual#step-4---download-the-linux-kernel-update-package
 
-#### Diretrizes
+- Configurar proxy para docker
+https://dev.to/mcastellin/use-docker-with-proxy-servers-tutorial-10gg#:~:text=Setting%20a%20Proxy%20on%20Docker%20for%20Mac%2FWindows&text=You%20can%20do%20this%20from,endpoint%20to%20handle%20HTTP%20calls
 
-  + Utilização padrão [frictionless](https://specs.frictionlessdata.io/#overview) de documentação de conjunto de dados;
-  + Utilização pacote python [dpckan](https://pypi.org/project/dpckan/) para publicação e atualização dos conjuntos de dados;
-  + Schema e Dialetic documentados fora do arquivo datapackage.json; e
-  + Validação dados x metadados realizada local e remotamente (github action).
+- Docker run
+https://stackoverflow.com/a/34211452/11755155
 
-#### Utilização:
+https://github.com/docker-archive/toolbox/issues/673#issuecomment-650243545
+- resolvido problema de criar pasta com nome estranho
 
-  + Criação de repositório a partir do repositório template;
-  + Clone local do novo repositório criado;
-  + Criação do ambiente python:
-
-```Terminal
-# Sistema operacional windows
-$ make venv-create-windows
-
-# Sistema operacional linux
-$ make venv-create-linux
-```
-
-  + Ativação dp ambiente python:
-
-```Terminal
-# Sistema operacional windows
-$ source venv/Scripts/activate
-
-# Sistema operacional linux
-$ source venv/bin/activate
-```
-
-  + Instalação pacotes python:
-
-```Terminal
-$ make install-packages
-```
-
-  + Validação conjunto de dados:
-
-```
-$ make dataset-validate
-```
-
-  + Publicando conjunto de dados:
-
-```
-$ make dataset-create
-```
+- Debian não instala make
+- https://askubuntu.com/questions/65081/what-are-the-implications-of-no-install-recommends-apt-get-install
