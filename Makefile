@@ -19,7 +19,7 @@ $(CSV_FILES): data/%.csv : upload/%.xlsx
 	@echo Convertendo upload/$*.xlsx file to data/$*.csv...
 	@python /scripts/convert_csv.py $< $@
 
-describe: ## Descreve os metadas de um conjunto de dados
+describe: ## Descreve os metadados de um conjunto de dados
 	@echo "Gerando datapackage.yaml"
 	@frictionless describe --yaml --type package data/* > datapackage.yaml
 
