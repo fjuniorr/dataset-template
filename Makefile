@@ -7,7 +7,7 @@ help: ## Informa breve descrição dos comando
 
 start: ## Inicia ambiente para trabalho com conjunto
 	@echo 'Iniciando ambiente...'
-	@sudo docker run -it -v /$(PWD):/dataset -e CKAN_HOST=$(CKAN_HOST) -e CKAN_KEY=$(CKAN_KEY) gabrielbdornas/dtamg:latest bash
+	@docker run -it -v /$(PWD):/dataset -e CKAN_HOST=$(CKAN_HOST) -e CKAN_KEY=$(CKAN_KEY) gabrielbdornas/dtamg:latest bash
 
 exit: ## Fecha ambiente para trabalho com conjunto
 	@echo 'Fechando ambiente...'
@@ -37,7 +37,7 @@ $(CSV_FILES): data/%.csv : upload/%.xlsx
 
 build: datapackage.json ## Build datapackage.json from datapackage.yaml
 
-datapackage.json: datapackage.yaml $(CSV_FILES)
+datapackage.json: datapackage.yaml $(CSV_FILES) $(SCHEMAS_FILES)
 	@echo "Construindo datapackage.json..."
 	@frictionless describe --type package --stats --json $< > $@
 
