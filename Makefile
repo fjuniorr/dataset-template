@@ -13,7 +13,7 @@ update-upstream: ## Atualiza repositório a partir do dataset template
 
 start: ## Inicia ambiente para trabalho com conjunto
 	@echo 'Iniciando ambiente...'
-	@docker run -it -v /$(PWD):/dataset -e CKAN_HOST=$(CKAN_HOST) -e CKAN_KEY=$(CKAN_KEY) gabrielbdornas/dtamg:latest bash
+	@docker run -it -v /$(PWD):/work_dir -e CKAN_HOST=$(CKAN_HOST) -e CKAN_KEY=$(CKAN_KEY) gabrielbdornas/dtamg:latest bash
 
 list: ## Lista pacotes instalados em ambiente virtual python
 	@echo 'Lista pacotes python instalados...'
