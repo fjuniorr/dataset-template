@@ -56,14 +56,6 @@ jobs:
         uses: ASzc/change-string-case-action@v1
         with:
           string: ${{ github.actor }}
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
-        env:
-          CKAN_HOST: ${{ secrets.CKAN_HOST }}
-          CKAN_KEY_USER: ${{ secrets.CKAN_KEY_FJUNIORR }}
-          CKAN_KEY: ${{ secrets[format('CKAN_KEY_{0}', steps.string.outputs.uppercase)] }}
-        with:
-          limit-access-to-actor: true
       - name: Update dataset in CKAN with dpckan
         env:
           CKAN_HOST: ${{ secrets.CKAN_HOST }}
