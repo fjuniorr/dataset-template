@@ -1,6 +1,7 @@
 {
   "name": "template-fjunior",
   "profile": "data-package",
+  "owner_org": "secretaria-de-estado-de-planejamento-e-gestao-seplag",
   "resources": [
     {
       "path": "data/estados.csv",
