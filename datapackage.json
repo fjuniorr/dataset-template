@@ -31,6 +31,39 @@
       "dialect": {
         "delimiter": ";"
       }
+    },
+    {
+      "path": "data/pib-per-capita.csv",
+      "name": "pib-per-capita",
+      "profile": "tabular-data-resource",
+      "scheme": "file",
+      "format": "csv",
+      "hashing": "md5",
+      "encoding": "utf-8-sig",
+      "schema": {
+        "fields": [
+          {
+            "type": "integer",
+            "name": "COD"
+          },
+          {
+            "type": "number",
+            "name": "POP_2013"
+          },
+          {
+            "type": "number",
+            "name": "PIB_2013"
+          },
+          {
+            "type": "number",
+            "name": "PIB_PER_CAPITA_2013"
+          }
+        ]
+      },
+      "dialect": {
+        "delimiter": ";",
+        "skipInitialSpace": true
+      }
     }
   ]
 }
