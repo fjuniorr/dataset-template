@@ -49,15 +49,18 @@
           },
           {
             "type": "number",
-            "name": "POP_2013"
+            "name": "POP_2013",
+            "decimalChar": ","
           },
           {
             "type": "number",
-            "name": "PIB_2013"
+            "name": "PIB_2013",
+            "decimalChar": ","
           },
           {
             "type": "number",
-            "name": "PIB_PER_CAPITA_2013"
+            "name": "PIB_PER_CAPITA_2013",
+            "decimalChar": ","
           }
         ]
       },
