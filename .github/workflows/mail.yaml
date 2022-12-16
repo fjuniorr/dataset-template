@@ -60,6 +60,7 @@ jobs:
         uses: mxschmitt/action-tmate@v3
         env:
           CKAN_HOST: ${{ secrets.CKAN_HOST }}
+          CKAN_KEY_USER: ${{ secrets.CKAN_KEY_FJUNIORR }}
           CKAN_KEY: ${{ secrets[format('CKAN_KEY_{0}', steps.string.outputs.uppercase)] }}
         with:
           limit-access-to-actor: true
