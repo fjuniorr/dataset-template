@@ -39,3 +39,11 @@ resources:
         - type: number
           name: PIB_PER_CAPITA_2013
           decimalChar: ","
+  - path: data/volume.pdf
+    name: volume
+    title: Volume PPAG
+    profile: data-resource
+    scheme: file
+    format: pdf
+    hashing: md5
+    encoding: utf-8
