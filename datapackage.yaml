@@ -18,7 +18,7 @@ resources:
           name: NOME
         - type: string
           name: SIGLA
--   path: data/pib-per-capita.csv
+  - path: data/pib-per-capita.csv
     name: pib-per-capita
     profile: tabular-data-resource
     scheme: file
