@@ -4,6 +4,7 @@ owner_org: secretaria-de-estado-de-planejamento-e-gestao-seplag
 resources:
   - path: data/estados.csv
     name: estados
+    title: Estados
     profile: tabular-data-resource
     scheme: file
     format: csv
