@@ -20,6 +20,7 @@ resources:
           name: SIGLA
   - path: data/pib-per-capita.csv
     name: pib-per-capita
+    title: PIB per capita
     profile: tabular-data-resource
     scheme: file
     format: csv
