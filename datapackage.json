@@ -16,7 +16,8 @@
         "fields": [
           {
             "type": "integer",
-            "name": "COD"
+            "name": "COD",
+            "title": "Código Estado"
           },
           {
             "type": "string",
@@ -45,7 +46,8 @@
         "fields": [
           {
             "type": "integer",
-            "name": "COD"
+            "name": "COD",
+            "title": "Código Estado"
           },
           {
             "type": "number",
@@ -68,6 +70,16 @@
         "delimiter": ";",
         "skipInitialSpace": true
       }
+    },
+    {
+      "path": "data/volume.pdf",
+      "name": "volume",
+      "title": "Volume PPAG",
+      "profile": "data-resource",
+      "scheme": "file",
+      "format": "pdf",
+      "hashing": "md5",
+      "encoding": "utf-8"
     }
   ]
 }
